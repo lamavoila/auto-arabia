@@ -8,12 +8,12 @@
 
     <div class="container">
         <div class="page-header__inner">
-            <h2>Services</h2>
+            <h2>{{ __("services") }}</h2>
             <div class="thm-breadcrumb__box">
                 <ul class="thm-breadcrumb list-unstyled">
-                    <li><a href="{{ url("/") }}">Home</a></li>
+                    <li><a href="{{ url("/") }}">{{ __("home") }}</a></li>
                     <li><span>/</span></li>
-                    <li><a href="{{ url("services") }}">Services</a></li>
+                    <li><a href="{{ url("services") }}">{{ __("services") }}</a></li>
                 </ul>
             </div>
         </div>

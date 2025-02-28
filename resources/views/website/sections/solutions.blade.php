@@ -1,9 +1,8 @@
 <!--Project Three Start-->
 <div class="project-three">
     <div class="section-title text-center">
-        <span class="section-title__tagline">Our Automation Solutions</span>
-        <h2 class="section-title__title pb-4">With our wide expertise in many industries, <br
-            >we already have big library of automation on below industries samples.</h2>
+        <span class="section-title__tagline">{{ __("solutions_title") }}</span>
+        <h2 class="section-title__title pb-4">{!! __("solutions_sub_title") !!}</h2>
     </div>
     <div class="project-three__bottom">
         <div class="container">
@@ -15,6 +14,7 @@
                 "autoplay": true,
                 "nav":true,
                 "dots":false,
+                "rtl":true,
                 "navText": ["<span class=\"icon-left-arrow\"></span>","<span class=\"icon-right-arrow\"></span>"],
                 "responsive":{
                     "0":{
@@ -41,14 +41,14 @@
                                 </div>
                                 <div class="project-three__arrow-box">
                                     <a href="{{ url("solutions/".$solution->slug) }}" class="project-three__arrow"><i
-                                            class="icon-right-arrow"></i></a>
+                                            class="icon-{{$right}}-arrow"></i></a>
                                 </div>
                                 <div class="project-three__content">
                                     <p class="project-three__sub-title">{{ $solution->parent_solution->title }}</p>
                                     <h3 class="project-three__title"><a href="{{ url("solutions/".$solution->slug) }}">{{ $solution->title }}</a></h3>
                                     <div class="project-three__arrow-box-2">
                                         <a href="{{ url("solutions/".$solution->slug) }}" class="project-three__arrow-2"><i
-                                                class="icon-right-arrow"></i></a>
+                                                class="icon-{{$right}}-arrow"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -58,10 +58,9 @@
                 @endforeach
             </div>
             <div class="project-three__more-project-and-btn">
-                <p class="project-three__more-project-text">You want view more solutions click the button now</p>
+                <p class="project-three__more-project-text">{{ __("solutions_more") }}</p>
                 <div class="project-three__more-project-btn-box">
-                    <a href="{{ url("solutions") }}" class="project-three__more-project-btn thm-btn">Discover
-                        more</a>
+                    <a href="{{ url("solutions") }}" class="project-three__more-project-btn thm-btn">{{ __("discover_more") }}</a>
                 </div>
             </div>
         </div>

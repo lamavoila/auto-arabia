@@ -67,7 +67,7 @@ class AdminHeaderMenusController extends CBController
 			'label' => 'URL',
 			'name' => 'link',
 			'type' => 'text',
-			'validation' => 'required|min:1|max:8000|url',
+			'validation' => 'required|min:1|max:8000',
 			'translation' => false,
 			'width' => 'col-sm-10',
 		];
@@ -115,7 +115,7 @@ class AdminHeaderMenusController extends CBController
 		}
 		$return_url = Request::fullUrl();
 		$page_title = 'Menu Management';
-		
+
 		return $this->view('crudbooster::headermenus.index', compact('menu_active', 'menu_inactive', 'return_url', 'page_title'));
 	}
 

@@ -28,7 +28,7 @@
                         "autoplay": 6000,
                         "nav":false,
                         "dots":false,
-                        "navText": ["<span class=\"icon-left-arrow\"></span>","<span class=\"icon-right-arrow\"></span>"],
+                        "navText": ["<span class=\"icon-left-arrow\"></span>","<span class=\"icon-{{$right}}-arrow\"></span>"],
                         "responsive":{
                             "0":{
                                 "items":1

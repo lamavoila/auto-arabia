@@ -3,72 +3,61 @@ namespace App\Http\Controllers;
 
 use crocodicstudio\crudbooster\controllers\CBController;
 
-class AdminProjectsController extends CBController
+class AdminStaticsController extends CBController
 {
 
     public function cbInit()
     {
-
         # START CONFIGURATION DO NOT REMOVE THIS LINE
+        $this->table               = "statics";
+        $this->translation_table   = "";
         $this->title_field         = "title_en";
-        $this->limit               = "20";
+        $this->limit               = 20;
         $this->orderby             = "sorting,asc";
-        $this->sortable_table      = true;
+        $this->show_numbering      = false;
         $this->global_privilege    = false;
         $this->button_table_action = true;
-        $this->button_bulk_action  = true;
         $this->button_action_style = "button_icon";
-        $this->record_seo          = false;
         $this->button_add          = true;
-        $this->button_edit         = true;
         $this->button_delete       = true;
+        $this->button_edit         = true;
         $this->button_detail       = true;
-        $this->pdf_direction       = "ltr";
         $this->button_show         = true;
-        $this->button_filter       = true;
-        $this->button_import       = false;
-        $this->button_export       = false;
+        $this->sortable_table      = true;
+        $this->pdf_direction       = "ltr";
         $this->page_seo            = false;
-        $this->table               = "projects";
-        # END CONFIGURATION DO NOT REMOVE THIS LINE
+        $this->record_seo          = false;
+        $this->button_filter       = true;
+        $this->button_export       = false;
+        $this->button_import       = false;
+        $this->button_bulk_action  = true;
+        $this->sidebar_mode        = "normal"; //normal,mini,collapse,collapse-mini
+                                               # END CONFIGURATION DO NOT REMOVE THIS LINE
 
         # START COLUMNS DO NOT REMOVE THIS LINE
-
         $this->col   = [];
-        $this->col[] = ["label" => "Number", "name" => "number"];
-        $this->col[] = ["label" => "Title (EN)", "name" => "title_en"];
-        $this->col[] = ["label" => "Title (AR)", "name" => "title_ar"];
-        $this->col[] = ["label" => "Solution", "name" => "solution_id", "join" => "solutions,title_en"];
-        $this->col[] = ["label" => "Service", "name" => "service_id", "join" => "services,title_en"];
-        $this->col[] = ["label" => "Active", "name" => "active", "switch" => true];
+        $this->col[] = ["label" => "Title En", "name" => "title_en"];
+        $this->col[] = ["label" => "Title Ar", "name" => "title_ar"];
+        $this->col[] = ["label" => "Value", "name" => "value"];
+        $this->col[] = ["label" => "Active", "name" => "active","switch"=>true];
         # END COLUMNS DO NOT REMOVE THIS LINE
 
         # START FORM DO NOT REMOVE THIS LINE
         $this->form   = [];
-        $this->form[] = ['label' => 'Number', 'name' => 'number', 'type' => 'text', 'validation' => 'required|min:1|max:255', 'width' => 'col-sm-10'];
-        $this->form[] = ['label' => 'Title (EN)', 'name' => 'title_en', 'type' => 'text', 'validation' => 'required|string|min:3|max:70', 'width' => 'col-sm-10', 'placeholder' => 'You can only enter the letter only'];
-        $this->form[] = ['label' => 'Title (AR)', 'name' => 'title_ar', 'type' => 'text', 'validation' => 'required|string|min:3|max:70', 'width' => 'col-sm-10', 'placeholder' => 'You can only enter the letter only'];
-        $this->form[] = ['label' => 'Client', 'name' => 'client', 'type' => 'wysiwyg', 'validation' => 'required|string|min:3|max:70', 'width' => 'col-sm-10', 'placeholder' => 'You can only enter the letter only'];
-        $this->form[] = ['label' => 'Date', 'name' => 'date', 'type' => 'date', 'validation' => '', 'width' => 'col-sm-10'];
-        $this->form[] = ['label' => 'Description (EN)', 'name' => 'description_en', 'type' => 'wysiwyg', 'validation' => 'required|string|min:5|max:5000', 'width' => 'col-sm-10'];
-        $this->form[] = ['label' => 'Description (AR)', 'name' => 'description_ar', 'type' => 'wysiwyg', 'validation' => 'required|string|min:5|max:5000', 'width' => 'col-sm-10'];
-        $this->form[] = ['label' => 'Brands', 'name' => 'brand_id', 'type' => 'select2', 'multiple' => true, 'width' => 'col-sm-10', 'datatable' => 'brands,title'];
-        $this->form[] = ['label' => 'Solution', 'name' => 'solution_id', 'type' => 'select2', 'width' => 'col-sm-10', 'datatable' => 'solutions,title_en'];
-        $this->form[] = ['label' => 'Services', 'name' => 'service_id', 'type' => 'select2', 'multiple' => true, 'width' => 'col-sm-10', 'datatable' => 'services,title_en'];
-
-        $this->form[] = ['label' => 'Image', 'name' => 'image', 'type' => 'filemanager', 'validation' => 'required', 'width' => 'col-sm-10', 'filemanager_type' => 'image'];
+        $this->form[] = ['label' => 'Title En', 'name' => 'title_en', 'type' => 'text', 'validation' => 'required|min:1|max:255', 'width' => 'col-sm-10'];
+        $this->form[] = ['label' => 'Title Ar', 'name' => 'title_ar', 'type' => 'text', 'validation' => 'required|min:1|max:255', 'width' => 'col-sm-10'];
+        $this->form[] = ['label' => 'Value', 'name' => 'value', 'type' => 'text', 'validation' => 'required|min:1|max:255', 'width' => 'col-sm-10'];
+        $this->form[] = ['label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'validation' => 'required|min:1|max:255', 'width' => 'col-sm-10', 'readonly' => '1'];
         $this->form[] = ['label' => 'Active', 'name' => 'active', 'type' => 'switch', 'validation' => 'required|min:1|max:255', 'width' => 'col-sm-10'];
         # END FORM DO NOT REMOVE THIS LINE
 
         # OLD START FORM
         //$this->form = [];
-        //$this->form[] = ['label'=>'Number','name'=>'number','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-        //$this->form[] = ['label'=>'Title','name'=>'title','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10','placeholder'=>'You can only enter the letter only'];
-        //$this->form[] = ['label'=>'Description','name'=>'description','type'=>'wysiwyg','validation'=>'required|string|min:5|max:5000','width'=>'col-sm-10'];
-        //$this->form[] = ['label'=>'brand_id','name'=>'brand_id','type'=>'select2','width'=>'col-sm-10'];
-        //$this->form[] = ['label'=>'Solution Id','name'=>'solution_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'solutions,title'];
-        //$this->form[] = ['label'=>'Service Id','name'=>'service_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'services,title'];
-        //$this->form[] = ['label'=>'Active','name'=>'active','type'=>'switch','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+        //$this->form[] = ['label'=>'Title En','name'=>'title_en','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+        //$this->form[] = ['label'=>'Title Ar','name'=>'title_ar','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+        //$this->form[] = ['label'=>'Value','name'=>'value','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+        //$this->form[] = ['label'=>'Icon','name'=>'icon','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+        //$this->form[] = ['label'=>'Active','name'=>'active','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
         # OLD END FORM
 
         /*
@@ -260,8 +249,7 @@ class AdminProjectsController extends CBController
     public function hook_before_add(&$postdata)
     {
         //Your code here
-        $postdata["service_id"] = implode(",", $postdata["service_id"]);
-        $postdata["brand_id"]     = implode(",", $postdata["brand_id"]);
+
     }
 
     /*
@@ -288,8 +276,7 @@ class AdminProjectsController extends CBController
     public function hook_before_edit(&$postdata, $id)
     {
         //Your code here
-        $postdata["service_id"] = implode(",", $postdata["service_id"]);
-        $postdata["brand_id"]     = implode(",", $postdata["brand_id"]);
+
     }
 
     /*

@@ -13,31 +13,41 @@
                         <div class="main-menu-four__main-menu-box">
                             <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                             <ul class="main-menu__list">
-                                <li class="dropdown">
-                                    <a href="{{ url("/") }}">Home </a>
-                                </li>
-                                <li>
-                                    <a href="#">About</a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#">Services</a>
-                                    <ul>
-                                        @foreach ($services as $service)
-                                            <li><a
-                                                    href="{{ url("services/") . "/" . $service->slug }}">{{ $service->title  }}</a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#">Projects</a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#">News</a>
-                                </li>
-                                <li>
-                                    <a href="#">Contact</a>
-                                </li>
+                                @foreach($headerMenu as $item)
+                                    <li class="dropdown">
+                                        <a href="{{ strpos("#",$item->link) === 0? url("/").$item->link:url($item->link) }}">{{ $item->name }} </a>
+                                        @if($item->link == "services")
+                                        <ul>
+                                            @foreach ($services as $service)
+                                                <li><a
+                                                        href="{{ url("services/") . "/" . $service->slug }}">{{ $service->title  }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                        @elseif($item->link == "solutions")
+                                        <ul>
+                                            @foreach ($solutions_menu as $solution)
+                                                <li class="dropdown">
+                                                    <a href="{{ url("solutions/") . "/" . $solution->slug }}">{{ $solution->title  }}</a>
+                                                    <ul>
+                                                        @foreach($solution->child_solutions as $child)
+                                                            <li><a href="{{ url("solutions/") . "/" . $child->slug }}">{{ $child->title  }}</a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                        @elseif($item->link == "projects")
+                                        <ul>
+                                            @foreach ($projects as $project)
+                                                <li><a
+                                                        href="{{ url("projects/") . "/" . $project->slug }}">{{ $project->title  }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                        @endif
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="main-menu-four__search-cart-box">

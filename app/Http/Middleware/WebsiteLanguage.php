@@ -1,10 +1,12 @@
 <?php
+
 namespace App\Http\Middleware;
 
-use App;
 use Closure;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\View;
 
-class SetLocale
+class WebsiteLanguage
 {
     /**
      * Handle an incoming request.
@@ -15,14 +17,11 @@ class SetLocale
      */
     public function handle($request, Closure $next)
     {
-        $locale = session('locale');
-        if ($locale) {
-            $locale = session()->put('locale', config('app.locale'));
+        if (is_null(session('locale'))) {
+            session()->put('locale', 'en');
         }
-        $direction = session("locale") == "ar" ? "rtl" : "ltr";
-        session()->put("direction", $direction);
-
-        App::setLocale($locale);
+        App::setLocale(session()->get('locale'));
+        View::share('right', session()->get('locale')=="en"?"right":"left");
         return $next($request);
     }
 }

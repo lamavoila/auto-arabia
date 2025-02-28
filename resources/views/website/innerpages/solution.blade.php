@@ -11,9 +11,9 @@
                 <h2>{{ $solution->title }}</h2>
                 <div class="thm-breadcrumb__box">
                     <ul class="thm-breadcrumb list-unstyled">
-                        <li><a href="{{ url("/") }}">Home</a></li>
+                        <li><a href="{{ url("/") }}">{{ __("home") }}</a></li>
                         <li><span>/</span></li>
-                        <li><a href="{{ url("solutions") }}">Solutions</a></li>
+                        <li><a href="{{ url("solutions") }}">{{ __("solutions") }}</a></li>
                         <li><span>/</span></li>
                         <li><a href="{{ url("solutions/".$solution->slug) }}">{{ $solution->title }}</a></li>
                     </ul>
@@ -29,9 +29,8 @@
             <div class="project-three__top">
                 <div class="container">
                     <div class="section-title text-left">
-                        <span class="section-title__tagline">Our Automation Solutions</span>
-                        <h2 class="section-title__title">With our wide expertise in many industries, <br>we already have big
-                            library of automation on below industries samples.
+                        <span class="section-title__tagline">{{ __("solutions_title") }}</span>
+                        <h2 class="section-title__title">{!! __("solutions_sub_title") !!}
                         </h2>
                     </div>
                 </div>
@@ -44,7 +43,7 @@
                                 @foreach ($mainSolutions as $item)
                                     <li class="{{ ($item->slug == $solution->slug ? "active" : "") }}">
                                         <a href="{{ url("solutions/" . $item->slug) }}">{{ $item->title}}<span
-                                                class="icon-right-arrow"></span></a>
+                                                class="icon-{{$right}}-arrow"></span></a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -56,11 +55,9 @@
                             <div class="service-details__need-help-icon">
                                 <span class="icon-phone-call"></span>
                             </div>
-                            <h2 class="service-details__need-help-title">Get a free quote <br> for industry & <br>
-                                factory</h2>
-                            <div class="service-details__need-help-contact">
-                                <p>Call anytime</p>
-                                <a href="tel:922460088">+92 (246) 0088</a>
+                            <h2 class="service-details__need-help-title">{{ __("contact") }}</h2>
+                            <div style="direction: ltr;" class="service-details__need-help-contact">
+                                <a style="direction: ltr;" href="tel:966112781951">+966 11 278 1951</a>
                             </div>
                         </div>
                     </div>

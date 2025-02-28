@@ -36,19 +36,23 @@ class AdminServicesController extends CBController {
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Title","name"=>"title"];
+			$this->col[] = ["label"=>"Title (EN)","name"=>"title_en"];
+			$this->col[] = ["label"=>"Title (AR)","name"=>"title_ar"];
 			$this->col[] = ["label"=>"Slug","name"=>"slug"];
-			$this->col[] = ["label"=>"Sub Title","name"=>"sub_title"];
+			$this->col[] = ["label"=>"Sub Title","name"=>"sub_title_en"];
 			$this->col[] = ["label"=>"Image","name"=>"image","image"=>true];
 			$this->col[] = ["label"=>"Active","name"=>"active","switch"=>true];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Title','name'=>'title','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10','placeholder'=>'You can only enter the letter only'];
+			$this->form[] = ['label'=>'Title (EN)','name'=>'title_en','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10','placeholder'=>'You can only enter the letter only'];
+			$this->form[] = ['label'=>'Title (AR)','name'=>'title_ar','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10','placeholder'=>'You can only enter the letter only'];
 			$this->form[] = ['label'=>'Slug','name'=>'slug','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10','placeholder'=>'You can only enter the letter only'];
-			$this->form[] = ['label'=>'Sub Title','name'=>'sub_title','type'=>'wysiwyg','validation'=>'required|min:1','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Content','name'=>'content','type'=>'wysiwyg','validation'=>'required|string','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Sub Title (EN)','name'=>'sub_title_en','type'=>'wysiwyg','validation'=>'required|min:1','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Sub Title (AR)','name'=>'sub_title_ar','type'=>'wysiwyg','validation'=>'required|min:1','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Content (EN)','name'=>'content_en','type'=>'wysiwyg','validation'=>'required|string','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Content (AR)','name'=>'content_ar','type'=>'wysiwyg','validation'=>'required|string','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Image','name'=>'image','type'=>'filemanager','width'=>'col-sm-9','filemanager_type'=>'image'];
 			$this->form[] = ['label'=>'Active','name'=>'active','type'=>'switch','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE

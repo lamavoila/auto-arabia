@@ -3,7 +3,7 @@
 @section('content')
     <!--Page Header Start-->
     <section class="page-header">
-        <div class="page-header-bg" style="background-image: url({{ asset("assets/bg-images/services.jpg") }})">
+        <div class="page-header-bg" style="background-image: url({{ asset($service->image) }})">
         </div>
 
         <div class="container">
@@ -11,9 +11,9 @@
                 <h2>{{ $service->title }}</h2>
                 <div class="thm-breadcrumb__box">
                     <ul class="thm-breadcrumb list-unstyled">
-                        <li><a href="{{ url("/") }}">Home</a></li>
+                        <li><a href="{{ url("/") }}">{{ __("home") }}</a></li>
                         <li><span>/</span></li>
-                        <li><a href="{{ url("/services") }}">Services</a></li>
+                        <li><a href="{{ url("/services") }}">{{ __("services") }}</a></li>
                         <li><span>/</span></li>
                         <li>{{ $service->title }}</li>
                     </ul>
@@ -26,9 +26,6 @@
     <!--Service Details Start-->
     <section class="project-details">
         <div class="container">
-            <div class="project-details__img">
-                <img src="{{ asset($service->image) }}" alt="{{ $service->image }}">
-            </div>
             <div class="project-details__content">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12">

@@ -19,24 +19,12 @@
             <div class="col-xl-5">
                 <div class="about-two__right">
                     <div class="section-title text-left">
-                        <span class="section-title__tagline">About Us</span>
-                        <h2 class="section-title__title">Leading the Future of Industrial Automation</h2>
+                        <span class="section-title__tagline">{{ __('about_us') }}</span>
+                        <h2 class="section-title__title">{{ __("about_us_title") }}</h2>
                     </div>
-                    <p class="about-two__text-1">Innovative Solutions for Enhanced Productivity</p>
-                    <p class="about-two__text-2">At <strong>Auto Arabia</strong>, we specialize in providing integrated automation solutions tailored to meet the unique needs of various industries. Our services encompass design, engineering, software development (PLC, CNC, SCADA, HMI), documentation, commissioning, testing, maintenance, and more. We are committed to delivering high-quality solutions that drive efficiency and growth.</p>
-                    
-                    <div class="about-two__btn-and-call-box">
-                        <a href="#" class="thm-btn about-two__btn">Discover more</a>
-                        <div class="about-two__call-box">
-                            <div class="about-two__call-box-icon">
-                                <span class="icon-phone-call"></span>
-                            </div>
-                            <div class="about-two__call-box-content">
-                                <p class="about-two__call-sub-title">Call Anytime</p>
-                                <h4 class="about-two__number"><a href="tel:+966123456789">+966 123 456 789</a></h4>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="about-two__text-1">{{ __("about_us_sub_title1") }} </p>
+                    <p class="about-two__text-2">{{ __("about_us_sub_title2") }}</p>
+
                 </div>
             </div>
         </div>

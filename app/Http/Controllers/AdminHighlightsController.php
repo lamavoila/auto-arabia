@@ -34,30 +34,25 @@ class AdminHighlightsController extends CBController
 
         # START COLUMNS DO NOT REMOVE THIS LINE
         $this->col   = [];
-        $this->col[] = ["label" => "Title", "name" => "title"];
-        $this->col[] = ["label" => "Sub Title", "name" => "sub_title"];
+        $this->col[] = ["label" => "Title", "name" => "title_en"];
+        $this->col[] = ["label" => "Sub Title", "name" => "sub_title_en"];
         $this->col[] = ["label" => "Link", "name" => "link"];
         $this->col[] = ["label" => "Image", "name" => "image", "image" => true];
         $this->col[] = ["label" => "Active", "name" => "active", "switch" => true];
         # END COLUMNS DO NOT REMOVE THIS LINE
 
-			# START FORM DO NOT REMOVE THIS LINE
-			$this->form = [];
-			$this->form[] = ['label'=>'Title','name'=>'title','type'=>'wysiwyg','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Sub Title','name'=>'sub_title','type'=>'wysiwyg','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Link','name'=>'link','type'=>'text','validation'=>'url','width'=>'col-sm-10','placeholder'=>'Please enter a valid URL'];
-			$this->form[] = ['label'=>'Image','name'=>'image','type'=>'filemanager','validation'=>'required','width'=>'col-sm-9','filemanager_type'=>'image'];
-			# END FORM DO NOT REMOVE THIS LINE
+        # START FORM DO NOT REMOVE THIS LINE
+        $this->form   = [];
+        $this->form[] = ['label' => 'Title (EN)', 'name' => 'title_en', 'type' => 'wysiwyg', 'validation' => 'required|string|min:3|max:70', 'width' => 'col-sm-10'];
+        $this->form[] = ['label' => 'Title (AR)', 'name' => 'title_ar', 'type' => 'wysiwyg', 'validation' => 'required|string|min:3|max:70', 'width' => 'col-sm-10'];
+        $this->form[] = ['label' => 'Sub Title (EN)', 'name' => 'sub_title_en', 'type' => 'wysiwyg', 'width' => 'col-sm-10'];
+        $this->form[] = ['label' => 'Sub Title (AR)', 'name' => 'sub_title_ar', 'type' => 'wysiwyg', 'width' => 'col-sm-10'];
+        $this->form[] = ['label' => 'Link', 'name' => 'link', 'type' => 'text', 'validation' => 'url', 'width' => 'col-sm-10', 'placeholder' => 'Please enter a valid URL'];
+        $this->form[] = ['label' => 'Image', 'name' => 'image', 'type' => 'filemanager', 'validation' => 'required', 'width' => 'col-sm-9', 'filemanager_type' => 'image'];
+        # END FORM DO NOT REMOVE THIS LINE
 
-			# OLD START FORM
-			//$this->form   = [];
-			//$this->form[] = ['label' => 'Title', 'name' => 'title', 'type' => 'text', 'validation' => 'required|string|min:3|max:70', 'width' => 'col-sm-10', 'placeholder' => 'You can only enter the letter only'];
-			//$this->form[] = ['label' => 'Sub Title', 'name' => 'sub_title', 'type' => 'textarea', 'width' => 'col-sm-10'];
-			//$this->form[] = ['label' => 'Link', 'name' => 'link', 'type' => 'text', 'validation' => 'url', 'width' => 'col-sm-10', 'placeholder' => 'Please enter a valid URL'];
-			//$this->form[] = ['label' => 'Image', 'name' => 'image', 'type' => 'filemanager', 'validation' => 'required', 'width' => 'col-sm-9', 'filemanager_type' => 'image'];
-			# OLD END FORM
 
-			/*
+        /*
 	        | ----------------------------------------------------------------------
 	        | Sub Module
 	        | ----------------------------------------------------------------------

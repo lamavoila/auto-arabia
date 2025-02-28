@@ -18,8 +18,7 @@
 
             @foreach ($highlights as $highlight)
                 <div class="swiper-slide">
-                    <div class="image-layer-four"
-                        style="background-image: url({{ asset($highlight->image) }});"></div>
+                    <div class="image-layer-four" style="background-image: url({{ asset($highlight->image) }});"></div>
 
                     <div class="container">
                         <div class="row">
@@ -29,8 +28,8 @@
                                     <div class="main-slider-four__text">{!! $highlight->sub_title !!}</div>
                                     <div class="main-slider-four__btn-box">
                                         @if($highlight->link)
-                                        <a href="#" class="thm-btn main-slider-four__btn">Discover
-                                            more</a>
+                                            <a href="#" class="thm-btn main-slider-four__btn">Discover
+                                                more</a>
                                         @endif
                                     </div>
                                 </div>
@@ -48,7 +47,7 @@
                 <i class="icon-left-arrow"></i>
             </div>
             <div class="swiper-button-next" id="main-slider__swiper-button-prev">
-                <i class="icon-right-arrow"></i>
+                <i class="icon-{{$right}}-arrow"></i>
             </div>
         </div>
 

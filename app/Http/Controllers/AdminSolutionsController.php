@@ -11,7 +11,7 @@ class AdminSolutionsController extends CBController
         # START CONFIGURATION DO NOT REMOVE THIS LINE
         $this->table               = "solutions";
         $this->translation_table   = "";
-        $this->title_field         = "title";
+        $this->title_field         = "title_en";
         $this->limit               = 20;
         $this->orderby             = "sorting,asc";
         $this->show_numbering      = false;
@@ -37,7 +37,8 @@ class AdminSolutionsController extends CBController
         # START COLUMNS DO NOT REMOVE THIS LINE
         $this->col = [];
         // $this->col[] = ["label" => "Main Solution", "name" => "parent_id", "join" => "solutions,title"];
-        $this->col[] = ["label" => "Title", "name" => "title"];
+        $this->col[] = ["label" => "Title (EN)", "name" => "title_en"];
+        $this->col[] = ["label" => "Title (AR)", "name" => "title_ar"];
         $this->col[] = ["label" => "Slug", "name" => "slug"];
         $this->col[] = ["label" => "Image", "name" => "image", "image" => true];
         $this->col[] = ["label" => "Active", "name" => "active", "switch" => true];
@@ -45,21 +46,16 @@ class AdminSolutionsController extends CBController
 
         # START FORM DO NOT REMOVE THIS LINE
         $this->form   = [];
-        $this->form[] = ['label' => 'Main Solution', 'name' => 'parent_id', 'type' => 'select2', 'datatable' => 'solutions,title', 'datatable_where' => "deleted_at is null and active=1 and parent_id is null ", 'width' => 'col-sm-10'];
-        $this->form[] = ['label' => 'Title', 'name' => 'title', 'type' => 'text', 'validation' => 'required|string|min:3|max:70', 'width' => 'col-sm-10'];
+        $this->form[] = ['label' => 'Main Solution', 'name' => 'parent_id', 'type' => 'select2', 'datatable' => 'solutions,title_en', 'datatable_where' => "deleted_at is null and active=1 and parent_id is null ", 'width' => 'col-sm-10'];
+        $this->form[] = ['label' => 'Title (EN)', 'name' => 'title_en', 'type' => 'text', 'validation' => 'required|string|min:3|max:70', 'width' => 'col-sm-10'];
+        $this->form[] = ['label' => 'Title (AR)', 'name' => 'title_ar', 'type' => 'text', 'validation' => 'required|string|min:3|max:70', 'width' => 'col-sm-10'];
         $this->form[] = ['label' => 'Slug', 'name' => 'slug', 'type' => 'text', 'validation' => 'required|string|min:3|max:70', 'width' => 'col-sm-10'];
-        $this->form[] = ['label' => 'Description', 'name' => 'description', 'type' => 'wysiwyg', 'validation' => 'string', 'width' => 'col-sm-10'];
+        $this->form[] = ['label' => 'Description (EN)', 'name' => 'description_en', 'type' => 'wysiwyg', 'validation' => 'string', 'width' => 'col-sm-10'];
+        $this->form[] = ['label' => 'Description (AR)', 'name' => 'description_ar', 'type' => 'wysiwyg', 'validation' => 'string', 'width' => 'col-sm-10'];
         $this->form[] = ['label' => 'Image', 'name' => 'image', 'type' => 'filemanager', 'width' => 'col-sm-10', 'filemanager_type' => 'image'];
         $this->form[] = ['label' => 'Active', 'name' => 'active', 'type' => 'switch', 'validation' => 'required|min:1|max:255', 'width' => 'col-sm-10'];
         # END FORM DO NOT REMOVE THIS LINE
 
-        # OLD START FORM
-        //$this->form = [];
-        //$this->form[] = ['label'=>'Main Solution','name'=>'parent_id','type'=>'select2','width'=>'col-sm-10','placeholder'=>'You can only enter the letter only'];
-        //$this->form[] = ['label'=>'Title','name'=>'title','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10'];
-        //$this->form[] = ['label'=>'Image','name'=>'image','type'=>'filemanager','validation'=>'required|image|max:3000','width'=>'col-sm-10','datatable'=>'portfolios,title','filemanager_type'=>'image'];
-        //$this->form[] = ['label'=>'Active','name'=>'active','type'=>'switch','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-        # OLD END FORM
 
         /*
 	        | ----------------------------------------------------------------------
@@ -74,7 +70,7 @@ class AdminSolutionsController extends CBController
 	        |
 	        */
         $this->sub_module   = [];
-        $this->sub_module[] = ['label' => 'Sub Solutions', 'path' => 'solutions', 'parent_columns' => 'title', 'foreign_key' => 'parent_id', 'button_color' => 'success'];
+        $this->sub_module[] = ['label' => 'Sub Solutions', 'path' => 'solutions', 'parent_columns' => 'title_en', 'foreign_key' => 'parent_id', 'button_color' => 'success'];
         /*
 	        | ----------------------------------------------------------------------
 	        | Add More Action Button / Menu

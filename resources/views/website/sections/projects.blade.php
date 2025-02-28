@@ -5,11 +5,14 @@
     </div>
     <div class="container">
         <div class="section-title text-center">
-            <span class="section-title__tagline">Featured Project</span>
-            <h2 class="section-title__title">Let's checkout our all <br> latest project</h2>
+            <span class="section-title__tagline">{{ __("projects_title") }}</span>
+            <h2 class="section-title__title">
+                {{ __("projects_sub_title") }}
+            </h2>
         </div>
         <div class="project-two__carousel thm-owl__carousel owl-theme owl-carousel" data-owl-options='{
             "items": 1,
+            "rtl":true,
             "margin": 30,
             "smartSpeed": 700,
             "loop":true,
@@ -38,15 +41,16 @@
                 <div class="item">
                     <div class="project-two__single">
                         <div class="project-two__img">
-                            <img width="370" height="460" style="object-fit: cover" src="{{ asset($project->image) }}" alt="">
+                            <img width="370" height="300" style="object-fit: cover" src="{{ asset($project->image) }}"
+                                alt="">
                             <div class="project-two__arrow">
                                 <a href="{{ url("projects/") . "/" . $project->slug }}"><span
-                                        class="icon-right-arrow"></span></a>
+                                        class="icon-{{$right}}-arrow"></span></a>
                             </div>
                         </div>
                         <div class="project-two__content">
                             <p class="project-two__sub-title">{{ $project->solution->title }}</p>
-                            <h3 class="project-two__title"><a href="project-details.html">{{ $project->title }}</a>
+                            <h3 class="project-two__title"><a href="{{ url("projects/") . "/" . $project->slug }}">{{ $project->title }}</a>
                             </h3>
                         </div>
                     </div>

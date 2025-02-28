@@ -1,9 +1,11 @@
 <?php
 namespace App\Providers;
 
-use App;
+use Illuminate\Support\Facades\App;
 use App\Models\Service;
 use App\Models\Solution;
+use App\Models\Project;
+use App\Models\Menu;
 use Illuminate\Support\ServiceProvider;
 use Schema;
 use View;
@@ -28,15 +30,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-        // dd(session()->all());
         $services  = Service::all();
-        $solutions = Solution::all();
+        $solutions_menu = Solution::where("parent_id",null)->with("child_solutions")->get();
+        $projects = Project::all();
+        $headerMenu = Menu::where("type","header")->get();
         View::share([
-            'lang'      => App::getLocale(),
-            'direction' => (App::getLocale() == "en" ? "ltr" : "rtl"),
+            'headerMenu'  => $headerMenu,
             'services'  => $services,
-            'solutions' => $solutions,
+            'solutions_menu' => $solutions_menu,
+            'projects' => $projects,
         ]);
     }
 }

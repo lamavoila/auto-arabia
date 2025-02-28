@@ -1,7 +1,7 @@
 <!--Brand One Start-->
 <section class="brand-two">
     <div class="container">
-        <h4 class="brand-two__title">The Brands</h4>
+        <h4 class="brand-two__title">{{ __("brands_title") }}</h4>
         <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 5, "autoplay": { "delay": 5000 }, "breakpoints": {
             "0": {
                 "spaceBetween": 30,

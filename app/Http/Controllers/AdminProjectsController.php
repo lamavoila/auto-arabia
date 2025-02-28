@@ -35,7 +35,7 @@ class AdminProjectsController extends CBController
         # START COLUMNS DO NOT REMOVE THIS LINE
         $this->col   = [];
         $this->col[] = ["label" => "Number", "name" => "number"];
-        $this->col[] = ["label" => "Title", "name" => "title"];
+        $this->col[] = ["label" => "Title (EN)", "name" => "title_en"];
         $this->col[] = ["label" => "Solution", "name" => "solution_id", "join" => "solutions,title"];
         $this->col[] = ["label" => "Service", "name" => "service_id", "join" => "services,title"];
         $this->col[] = ["label" => "Active", "name" => "active", "switch" => true];
@@ -44,13 +44,14 @@ class AdminProjectsController extends CBController
         # START FORM DO NOT REMOVE THIS LINE
         $this->form   = [];
         $this->form[] = ['label' => 'Number', 'name' => 'number', 'type' => 'text', 'validation' => 'required|min:1|max:255', 'width' => 'col-sm-10'];
-        $this->form[] = ['label' => 'Title', 'name' => 'title', 'type' => 'text', 'validation' => 'required|string|min:3|max:70', 'width' => 'col-sm-10', 'placeholder' => 'You can only enter the letter only'];
+        $this->form[] = ['label' => 'Title (EN)', 'name' => 'title_en', 'type' => 'text', 'validation' => 'required|string|min:3|max:70', 'width' => 'col-sm-10', 'placeholder' => 'You can only enter the letter only'];
         $this->form[] = ['label' => 'Client', 'name' => 'client', 'type' => 'wysiwyg', 'validation' => 'required|string|min:3|max:70', 'width' => 'col-sm-10', 'placeholder' => 'You can only enter the letter only'];
         $this->form[] = ['label' => 'Date', 'name' => 'date', 'type' => 'date', 'validation' => '', 'width' => 'col-sm-10'];
-        $this->form[] = ['label' => 'Description', 'name' => 'description', 'type' => 'wysiwyg', 'validation' => 'required|string|min:5|max:5000', 'width' => 'col-sm-10'];
-        $this->form[] = ['label' => 'Brands', 'name' => 'brands', 'type' => 'select2', 'multiple' => true, 'width' => 'col-sm-10', 'datatable' => 'brands,title'];
+        $this->form[] = ['label' => 'Description (EN)', 'name' => 'description_en', 'type' => 'wysiwyg', 'validation' => 'required|string|min:5|max:5000', 'width' => 'col-sm-10'];
+        $this->form[] = ['label' => 'Description (AR)', 'name' => 'description_ar', 'type' => 'wysiwyg', 'validation' => 'required|string|min:5|max:5000', 'width' => 'col-sm-10'];
+        $this->form[] = ['label' => 'Brands', 'name' => 'brand_id', 'type' => 'select2', 'multiple' => true, 'width' => 'col-sm-10', 'datatable' => 'brand_id,title'];
         $this->form[] = ['label' => 'Solution', 'name' => 'solution_id', 'type' => 'select2', 'width' => 'col-sm-10', 'datatable' => 'solutions,title'];
-        $this->form[] = ['label' => 'Service', 'name' => 'service_id', 'type' => 'select2', 'multiple' => true, 'width' => 'col-sm-10', 'datatable' => 'services,title'];
+        $this->form[] = ['label' => 'Services', 'name' => 'service_id', 'type' => 'select2', 'multiple' => true, 'width' => 'col-sm-10', 'datatable' => 'services,title'];
 
         $this->form[] = ['label' => 'Image', 'name' => 'image', 'type' => 'filemanager', 'validation' => 'required', 'width' => 'col-sm-10', 'filemanager_type' => 'image'];
         $this->form[] = ['label' => 'Active', 'name' => 'active', 'type' => 'switch', 'validation' => 'required|min:1|max:255', 'width' => 'col-sm-10'];
@@ -61,7 +62,7 @@ class AdminProjectsController extends CBController
         //$this->form[] = ['label'=>'Number','name'=>'number','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
         //$this->form[] = ['label'=>'Title','name'=>'title','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10','placeholder'=>'You can only enter the letter only'];
         //$this->form[] = ['label'=>'Description','name'=>'description','type'=>'wysiwyg','validation'=>'required|string|min:5|max:5000','width'=>'col-sm-10'];
-        //$this->form[] = ['label'=>'Brands','name'=>'brands','type'=>'select2','width'=>'col-sm-10'];
+        //$this->form[] = ['label'=>'brand_id','name'=>'brand_id','type'=>'select2','width'=>'col-sm-10'];
         //$this->form[] = ['label'=>'Solution Id','name'=>'solution_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'solutions,title'];
         //$this->form[] = ['label'=>'Service Id','name'=>'service_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'services,title'];
         //$this->form[] = ['label'=>'Active','name'=>'active','type'=>'switch','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
@@ -257,7 +258,7 @@ class AdminProjectsController extends CBController
     {
         //Your code here
         $postdata["service_id"] = implode(",", $postdata["service_id"]);
-        $postdata["brands"]     = implode(",", $postdata["brands"]);
+        $postdata["brand_id"]     = implode(",", $postdata["brand_id"]);
     }
 
     /*
@@ -285,7 +286,7 @@ class AdminProjectsController extends CBController
     {
         //Your code here
         $postdata["service_id"] = implode(",", $postdata["service_id"]);
-        $postdata["brands"]     = implode(",", $postdata["brands"]);
+        $postdata["brand_id"]     = implode(",", $postdata["brand_id"]);
     }
 
     /*

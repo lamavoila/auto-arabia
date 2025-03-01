@@ -17,7 +17,7 @@
                             <p class="footer-widget__about-text">{{ __("footer_text") }}</p>
                         </div>
                         <div class="footer-widget__about-btn-box">
-                            <a href="#" class="footer-widget__about-btn thm-btn">{{ __("contact") }}</a>
+                            <a href="{{ url("contact-us") }}" class="footer-widget__about-btn thm-btn">{{ __("contact") }}</a>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                                     <span class="icon-email"></span>
                                 </div>
                                 <div class="text">
-                                    <p><a href="mailto:Abdullah@Delta-Stars.Com">Abdullah@Delta-Stars.Com</a></p>
+                                    <p><a href="mailto:{{ $companyInfo->email }}">{{ $companyInfo->email }}</a></p>
                                 </div>
                             </li>
                             <li>
@@ -71,7 +71,7 @@
                                     <span class="icon-telephone"></span>
                                 </div>
                                 <div class="text">
-                                    <p style="direction: ltr;"><a style="direction: ltr;" href="tel:966112781951">+966 11 278 1951</a></p>
+                                    <p style="direction: ltr;"><a style="direction: ltr;" href="tel:{{ $companyInfo->phone }}">+{{ $companyInfo->phone }}</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -80,11 +80,7 @@
             </div>
         </div>
         <div class="site-footer__bottom">
-            <p class="site-footer__bottom-text">© Copyright 2023 by <a href="#">Auto Arabia</a></p>
-            <ul class="list-unstyled site-footer__bottom-menu">
-                <li><a href="#">Help</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-            </ul>
+            <p class="site-footer__bottom-text">© {{ __("copyrights") }} {{ date("Y")}} {{ __("by") }} <a href="#">Auto Arabia</a></p>
         </div>
     </div>
 </footer>

@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('changeLang/{locale}', "Website\HomeController@changeLang");
 
 Route::get('/', "Website\HomeController@index");
+Route::get('/route/clear', "Website\HomeController@clear");
 
+Route::get('contact-us', "Website\HomeController@contact");
+Route::post('save-contact', "Website\HomeController@saveContact");
 Route::get('services', "Website\HomeController@services");
 Route::get('solutions', "Website\HomeController@solutions");
 Route::get('projects', "Website\HomeController@projects");

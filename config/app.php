@@ -80,8 +80,8 @@ return [
     |
     */
 
-    'locale' => 'en',
-    
+    'locale' => 'ar',
+
     'available_locales' => ['en', 'ar'],
 
     /*
@@ -230,5 +230,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+
+    "recaptcha_site_key" => env("recaptcha_site_key"),
+    "recaptcha_secret_key" => env("recaptcha_secret_key"),
 
 ];

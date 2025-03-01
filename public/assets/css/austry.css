@@ -1454,12 +1454,16 @@ ul {
 .mobile-nav__close {
     position: absolute;
     top: 20px;
-    right: 15px;
     font-size: 18px;
     color: var(--austry-white);
     cursor: pointer;
 }
-
+html[dir="ltr"] .mobile-nav__close{
+    right: 15px;
+}
+html[dir="rtl"] .mobile-nav__close{
+    left: 15px;
+}
 .mobile-nav__content .main-menu__list,
 .mobile-nav__content .main-menu__list > li > ul,
 .mobile-nav__content .main-menu__list > li > ul > li > ul {
@@ -1558,12 +1562,23 @@ ul {
     justify-content: center;
     text-align: center;
     -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
     -webkit-transition: -webkit-transform 500ms ease;
     transition: -webkit-transform 500ms ease;
     transition: transform 500ms ease;
     transition: transform 500ms ease, -webkit-transform 500ms ease;
     padding: 0;
+}
+
+html[dir="ltr"] .mobile-nav__content .main-menu__list > li > a > button,
+html[dir="ltr"] .mobile-nav__content .main-menu__list > li > ul > li > a > button,
+html[dir="ltr"] .mobile-nav__content .main-menu__list > li > ul > li > ul > li > a > button {
+    transform: rotate(-90deg);
+}
+
+html[dir="rtl"] .mobile-nav__content .main-menu__list > li > a > button,
+html[dir="rtl"] .mobile-nav__content .main-menu__list > li > ul > li > a > button,
+html[dir="rtl"] .mobile-nav__content .main-menu__list > li > ul > li > ul > li > a > button {
+    transform: rotate(90deg);
 }
 
 .mobile-nav__content .main-menu__list > li > a > button.expanded,
@@ -9305,7 +9320,7 @@ html[dir="rtl"] .counter-three__icon {
 }
 
 html[dir="ltr"] .project-three__arrow-box-2{
-    right: 0;
+    left: 0;
 }
 html[dir="rtl"] .project-three__arrow-box-2{
     left: 0;

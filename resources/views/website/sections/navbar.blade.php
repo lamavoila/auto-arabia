@@ -14,7 +14,7 @@
                             <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                             <ul class="main-menu__list">
                                 @foreach($headerMenu as $item)
-                                    <li class="dropdown">
+                                    <li class="{{ in_array($item->link,["solutions","services","projects"]) ? "dropdown":"" }}">
                                         <a href="{{ strpos("#",$item->link) === 0? url("/").$item->link:url($item->link) }}">{{ $item->name }} </a>
                                         @if($item->link == "services")
                                         <ul>

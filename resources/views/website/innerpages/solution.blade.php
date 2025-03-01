@@ -57,7 +57,7 @@
                             </div>
                             <h2 class="service-details__need-help-title">{{ __("contact") }}</h2>
                             <div style="direction: ltr;" class="service-details__need-help-contact">
-                                <a style="direction: ltr;" href="tel:966112781951">+966 11 278 1951</a>
+                                <a style="direction: ltr;" href="tel:{{ $companyInfo->phone }}">+{{ $companyInfo->phone }}</a>
                             </div>
                         </div>
                     </div>

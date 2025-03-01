@@ -41,4 +41,6 @@
     <!-- template styles -->
     <link rel="stylesheet" href="{{ asset("assets/css/austry.css")}}" />
     <link rel="stylesheet" href="{{ asset("assets/css/austry-responsive.css")}}" />
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>

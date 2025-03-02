@@ -44,7 +44,7 @@
         <!-- If we need navigation buttons -->
         <div class="main-slider-four__nav">
             <div class="swiper-button-prev" id="main-slider__swiper-button-next">
-                <i class="icon-left-arrow"></i>
+                <i class="icon-{{$left}}-arrow"></i>
             </div>
             <div class="swiper-button-next" id="main-slider__swiper-button-prev">
                 <i class="icon-{{$right}}-arrow"></i>

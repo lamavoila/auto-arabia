@@ -52,7 +52,7 @@
                         </div>
                         <div class="main-menu-four__search-cart-box">
                             <div class="main-menu-four__cart-box">
-                                <a href="{{ url("changeLang/ar") }}" class="main-menu-four__cart">العربية</a>
+                                <a href="{{ url("changeLang/ar") }}" class="main-menu-four__cart">{{ app()->getLocale() == "en"?"العربية":"English" }}</a>
                             </div>
                         </div>
                     </div>

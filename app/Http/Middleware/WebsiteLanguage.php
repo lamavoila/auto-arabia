@@ -22,6 +22,7 @@ class WebsiteLanguage
         }
         App::setLocale(session()->get('locale'));
         View::share('right', session()->get('locale')=="en"?"right":"left");
+        View::share('left', session()->get('locale')=="ar"?"right":"left");
         return $next($request);
     }
 }
